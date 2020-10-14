@@ -1,0 +1,141 @@
+<html >
+<head>
+<title>
+PARTY WITH ME
+</title>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body  onclick="htmlClick">
+
+
+<img class="cat-DJ move" src="https://media1.tenor.com/images/46981036e6c8c480bd2328f3bcb1496d/tenor.gif?itemid=7724858">
+<div class="grid">
+<img class="rotate"  src="https://i.pinimg.com/originals/f1/62/7d/f1627de2776ee4205f2e63082269a519.gif">
+<img class="rotate"  src="https://media1.tenor.com/images/86b46e3b51ce8cdbbb582d6d72981254/tenor.gif?itemid=16099045">
+<img class="rotate"  src="https://media2.giphy.com/media/GmXMpIy7yhlD2/giphy.gif">
+<img class="rotate"  src="https://catconworldwide.com/wp-content/uploads/2017/04/weekend-cat-2.gif">
+</div>
+
+<audio id="mySound" src="music.mp3" autoplay>
+<p>If you are reading this, it is because your browser does not support the audio element.     </p>
+<embed src="/music.mp3" width="180" height="90" hidden="true" />
+</audio>
+
+
+<style>
+body
+{
+overflow-x:hidden;
+}
+
+.cat-DJ
+{
+padding:0 30vw;
+width:40vw;
+height:20vw;
+}
+.grid
+{
+display: inline-grid;
+width:100vw;
+grid-template-columns: auto auto auto auto;
+padding:5vh;
+}
+.grid img
+{
+
+}
+
+.rotate {
+animation-name: rotation ;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(-40deg);
+  }
+  to {
+    transform: rotate(40deg);
+  }
+ 
+}
+.move
+{
+animation:moveable 5s infinite linear;
+animation-direction: alternate;
+}
+@keyframes moveable
+{
+from {
+    transform: translate(-100px);
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: translate(100px);
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+    transform: translate(-100px);
+  }
+}
+
+</style>
+</body>
+<script>
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+	
+  
+    document.body.style.background = bgColor;
+    }
+
+setInterval( random_bg_color,100);
+
+var i=true;
+document.body.onclick = function ()
+{
+if(i)
+{
+document.getElementById('mySound').play();
+i=false;
+
+}
+}
+
+$(".block").animate({left: '+=100px'}, 200000);
+
+
+
+function some()
+{
+var col=document.getElementsByClassName("rotate");
+for (i = 0; i < col.length; i++) {
+
+
+  Some1(col[i]);
+ 
+}
+}
+function Some1(el)
+{
+var g=getRndInteger(2,6);
+el.style.animationDuration = g+"s";
+setTimeout(
+function(){ Some1(el);}
+,g*1000);
+}
+
+function getRndInteger (min, max) {
+  return  Math.floor(Math.random() * (max - min) + min);
+}
+
+some();
+
+
+</script>
+</html>
